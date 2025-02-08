@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Riu</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <audio id="backgroundMusic" src="1.mp3" preload="auto" loop autoplay></audio>
+
+  <div class="carousel">
+    <div class="carousel-item">
+        <div class="carousel-box">
+            <div class="title">Hi Chotu👋</div>
+            <div class="num">01</div>
+			<img src="https://iili.io/2Z6jbm7.md.jpg" />
+        </div>
+    </div>
+
+    <div class="carousel-item">
+        <div class="carousel-box">
+            <div class="title">I want to tell you Something 😍</div>
+            <div class="num">02</div>
+			<img src="https://iili.io/2Z6jDeS.md.jpg" />
+        </div>
+    </div>
+
+    <div class="carousel-item">
+        <div class="carousel-box">
+            <div class="title">Please Keep Dragging 😊 </div>
+            <div class="num">03</div>
+			<img src="https://iili.io/2Z6jpI9.md.jpg" />
+        </div>
+    </div>
+
+	<div class="carousel-item">
+		<div class="carousel-box">
+			<div class="title">You are Amazing 🤩 </div>
+			<div class="num">04</div>
+			<img src="https://iili.io/2Z6wJqb.md.jpg" />
+        </div>
+	</div>
+
+	<div class="carousel-item">
+		<div class="carousel-box">
+			<div class="title">Most Beautiful and Strongest Person on Earth 💯</div>
+			<div class="num">05</div>
+			<img src="https://iili.io/2Z6w9Lu.md.jpg" />
+        </div>
+	</div>
+
+	<div class="carousel-item">
+		<div class="carousel-box">
+			<div class="title">And Cutest 🎀</div>
+			<div class="num">06</div>
+			<img src="https://iili.io/2Z6rWiB.md.png" />
+        </div>
+	</div>
+
+	<div class="carousel-item">
+		<div class="carousel-box">
+			<div class="title">keep that beautiful smile always🎀 </div>
+			<div class="num">07</div>
+			<img src="https://iili.io/2Z6jyXe.md.jpg" />
+        </div>
+	</div>
+
+	<div class="carousel-item">
+		<div class="carousel-box">
+			<div class="title">Your Makad is alwys with you😇❤️</div>
+			<div class="num">08</div>
+			<img src="https://iili.io/2Z6wd1j.md.jpg" />
+        </div>
+	</div>
+
+	<div class="carousel-item">
+		<div class="carousel-box">
+			<div class="title">Love You So Much Bhen🥰</div>
+			<div class="num">09</div>
+			<img src="https://iili.io/2Z6wK7V.md.png" />
+        </div>
+	</div>
+	<div class="carousel-item">
+		<div class="carousel-box">
+			<div class="title">Firse Janamdin ki khubh khubh Subhkamnaye! ❤️</div>
+			<div class="num">10</div>
+			<img src="https://iili.io/2Z6wfkB.md.png" />
+              </div>
+	</div>
+</div>
+
+
+
+
+  <script src="./script.js"></script>
+
+  <!-- Full-Screen button that will appear initially -->
+  <button id="playAudioButton">Tap to Reveal❤️</button>
+
+  <!-- New button that will appear after 10 seconds -->
+  <button id="newButton" style="display: none;">Click Me!</button>
+
+  <!-- Small message that will appear after clicking the new button -->
+  <div id="smallMessage" style="display: none;">You did it! 🎉</div>
+
+  <style>
+    /* Full-screen button style */
+    #playAudioButton {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      font-size: 2em;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 9999;
+      transition: opacity 1s ease-in-out;
+    }
+
+    /* Carousel transition effect */
+    .carousel {
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .carousel.show {
+      opacity: 1;
+    }
+
+    /* New button style */
+    #newButton {
+      display: block;
+      margin: 20px auto;
+      font-size: 1.5em;
+      padding: 10px 20px;
+      background-color: #ff7f50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: opacity 1s ease-in-out;
+    }
+
+    /* Small message style */
+    #smallMessage {
+      text-align: center;
+      font-size: 1.8em;
+      color: #ff6347;
+      margin-top: 30px;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    #smallMessage.show {
+      opacity: 1;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Get the audio element, play button, carousel, and new button
+      const playButton = document.getElementById('playAudioButton');
+      const audio = document.getElementById('backgroundMusic');
+      const carousel = document.querySelector('.carousel');
+      const newButton = document.getElementById('newButton');
+      const smallMessage = document.getElementById('smallMessage');
+
+      // Show the button for 2 seconds, then allow interaction
+      setTimeout(() => {
+        playButton.style.display = 'block'; // Make the button visible
+      }, 2000); // Adjust the delay as needed
+
+      // Add event listener to play the audio and show the carousel when the button is clicked
+      playButton.addEventListener('click', () => {
+        audio.play(); // Start the music
+        playButton.style.opacity = '0'; // Fade out the button
+        setTimeout(() => {
+          playButton.style.display = 'none'; // Hide the button completely after fade
+          carousel.classList.add('show'); // Show the carousel after the button is hidden
+        }, 1000); // Wait for 1 second for the fade-out transition before showing carousel
+
+        // Show the new button after 10 seconds
+        setTimeout(() => {
+          newButton.style.display = 'block'; // Make the new button visible after 10 seconds
+        }, 10000); // 10 seconds delay
+      });
+
+      // Add event listener to show the small message when the new button is clicked
+      newButton.addEventListener('click', () => {
+        smallMessage.classList.add('show'); // Show the small message with transition
+      });
+    });
+  </script>
+</body>
+</html>
